@@ -4,8 +4,7 @@ node('JDK11-MVN3.8.4') {
     stage('git') {
           git 'https://github.com/samnadhi9/simple-java-maven-app', branch: "${params.BRANCH_TO_BUILD}"   
     }
-    
-    stage('build') {
+        stage('build') {
         sh '''
             echo "PATH=${PATH}"
             echo "M2_HOME=${M2_HOME}"
