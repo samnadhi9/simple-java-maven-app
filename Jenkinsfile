@@ -1,7 +1,8 @@
 node('JDK11-MVN3.8.4') {
-    properties([pipelineTriggers([upstream('starterproject, ')])])
+    #properties([pipelineTriggers([upstream('starterproject, ')])])
+    properties([parameters([choice(choices: ['scripted1', 'master', 'declarative'], description: 'branch to be built', name: 'BRANCH_TO_BUILD')])])
     stage('git') {
-          git 'https://github.com/samnadhi9/simple-java-maven-app'   
+          git 'https://github.com/samnadhi9/simple-java-maven-app', branch: "${params.BRANCH_TO_BUILD}"   
     }
     
     stage('build') {
