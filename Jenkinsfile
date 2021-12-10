@@ -2,6 +2,7 @@ node('JDK11-MVN3.8.4') {
     stage('git') {
           git 'https://github.com/samnadhi9/simple-java-maven-app' 
     }
+    
     stage('build') {
         sh '''
             echo "PATH=${PATH}"
