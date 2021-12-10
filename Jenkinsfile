@@ -1,6 +1,7 @@
 node('JDK11-MVN3.8.4') {
+    properties([pipelineTriggers([upstream('starterproject, ')])])
     stage('git') {
-          git 'https://github.com/samnadhi9/simple-java-maven-app' 
+          git 'https://github.com/samnadhi9/simple-java-maven-app'   
     }
     
     stage('build') {
